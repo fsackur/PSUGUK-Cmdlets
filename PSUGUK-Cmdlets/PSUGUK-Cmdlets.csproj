@@ -7,8 +7,8 @@
     <ProjectGuid>{AEDBF96A-E33B-411B-9AE2-88AE5BCC680C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PSUGUK_Cmdlets</RootNamespace>
-    <AssemblyName>PSUGUK-Cmdlets</AssemblyName>
+    <RootNamespace>Dusty.AdConnectivity</RootNamespace>
+    <AssemblyName>Dusty.AdConnectivity</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

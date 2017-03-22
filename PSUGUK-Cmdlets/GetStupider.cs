@@ -4,6 +4,7 @@ using System.Linq;
 using System.Management.Automation;
 using System.Text;
 using Microsoft.PowerShell.Commands;
+using System.Collections;
 
 namespace Dusty.AdConnectivity
 {
@@ -35,6 +36,18 @@ namespace Dusty.AdConnectivity
                     )
                 );
         }
-        
+
+        protected override void EndProcessing()
+        {
+            WriteObject("Let me break it down for you:");
+
+            foreach (var name in StupidName)
+            {
+                PSObject obj = new PSObject();
+                obj.Properties.Add(new PSNoteProperty("Name", name));
+                obj.Properties.Add(new PSNoteProperty("Stupid", "yes"));
+                WriteObject(obj);
+            }
+        }
     }
 }

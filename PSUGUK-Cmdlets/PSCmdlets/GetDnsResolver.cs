@@ -30,6 +30,8 @@ namespace Dusty.ADConnectivity
                 if (Uri.CheckHostName(name.ToString()) == UriHostNameType.IPv4 ||
                         Uri.CheckHostName(name.ToString()) == UriHostNameType.IPv6)
                 {
+                    WriteVerbose($"{name} is an IP address");
+
                     IPAddress ip = IPAddress.Parse(name);
                     WriteObject(new DnsResolver(new IPEndPoint(ip, 53)));
                     continue;
@@ -37,6 +39,7 @@ namespace Dusty.ADConnectivity
 
                 try
                 {
+                    WriteVerbose($"{name} is not an IP address; attempting to resolve using the machine default DNS resolvers");
                     IPHostEntry host = Dns.GetHostEntry(name);
                     foreach (IPAddress ip in host.AddressList)
                     {

@@ -13,5 +13,10 @@ namespace Dusty.AdConnectivity
         {
             return "Your code sucks, and it doesn't have enough comments";
         }
+
+        public string GetInstanceCritique()
+        {
+            return "This instance is stupid";
+        }
     }
 }

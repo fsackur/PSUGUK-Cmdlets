@@ -15,11 +15,13 @@ namespace Dusty.AdConnectivity
      *
      * The file in the GAC was built against .NET 4.5. That is specific to my Win10 development machine
      * 
-     * Crappy hack - copied the file from a 2012 box into the packages folder and added a reference.
+     * Copied the file from a 2012 box into the packages folder and added a reference.
+     * 
+     * Checked the .csproj file - it's a relative reference
      * 
      */
     [Cmdlet("Get", "Stupider")]
-    class GetStupider : PSCmdlet
+    public class GetStupider : PSCmdlet
     {
 
     }

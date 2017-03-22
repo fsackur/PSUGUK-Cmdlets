@@ -28,6 +28,7 @@ New-MarkdownHelp -Command $Cmdlets -OutputFolder $ProjectDir\docs -ErrorAction S
 #if the help markdown is there, update it with any changes to the parameter bindings
 Update-MarkdownHelp -Path $ProjectDir\docs
 [void](New-Item -ItemType Directory -Path en-US -Force)
-New-ExternalHelp -Path $ProjectDir\docs -OutputPath .\en-US -Force
+Remove-Item .\en-US\*Help.xml -Force
+New-ExternalHelp -Path $ProjectDir\docs -OutputPath .\en-US -Force #-ErrorAction Stop
 
 #endregion Update help file

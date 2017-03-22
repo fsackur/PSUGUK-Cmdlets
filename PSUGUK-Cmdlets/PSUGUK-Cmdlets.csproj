@@ -60,12 +60,11 @@
     <None Include="Debug-Project.ps1">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="docs\Get-DnsResolver.md" />
     <None Include="packages.config" />
     <None Include="PostBuild.ps1" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="docs\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>powershell -NoProfile -File $(ProjectDir)PostBuild.ps1 -TargetPath $(TargetPath)</PostBuildEvent>

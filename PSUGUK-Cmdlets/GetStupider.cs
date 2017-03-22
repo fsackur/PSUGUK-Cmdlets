@@ -10,12 +10,19 @@ namespace Dusty.AdConnectivity
     [Cmdlet(VerbsCommon.Get, "Stupider")]
     public class GetStupider : PSCmdlet
     {
-        [Parameter(Mandatory = true, Position = 0)] //, ValueFromPipeline = true)]
+        [Parameter(Mandatory = true, Position = 0, ValueFromPipeline = true)]
         public string[] StupidName { get; set; }
+
+        [Parameter()]
+        public SwitchParameter LearnGrammarGood { get; set; }
+
+        private bool plural;
 
         protected override void BeginProcessing()
         {
-            //Parameters that accept pipeline input are not initialised in the begin block
+            plural = StupidName != null && StupidName.Length > 1;
+            plural = plural ^ LearnGrammarGood.ToBool();
+
             WriteObject(StupidName);
         }
 
@@ -24,7 +31,7 @@ namespace Dusty.AdConnectivity
             WriteObject(string.Format(
                         "{0} {1} stupid.",
                         string.Join(" and ", StupidName),
-                        StupidName.Length > 1 ? "is" : "are"
+                        plural ? "is" : "are"
                     )
                 );
         }

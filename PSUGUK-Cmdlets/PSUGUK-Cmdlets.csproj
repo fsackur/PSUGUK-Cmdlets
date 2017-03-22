@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Heijden.Dns, Version=2.0.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Heijden.Dns.2.0.0\lib\net35\Heijden.Dns.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Management.Infrastructure.Native, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Microsoft.Management.Infrastructure.Native.dll</HintPath>
@@ -47,15 +51,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GetStupider.cs" />
-    <Compile Include="StupidClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Types\DnsResolver.cs" />
+    <Compile Include="Types\DnsResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug-Project.ps1">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PSCmdlets\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

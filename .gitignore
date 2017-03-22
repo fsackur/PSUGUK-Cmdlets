@@ -4,6 +4,7 @@
 # User-specific files
 *.suo
 *.user
+!PSUGUK-Cmdlets.csproj.user
 *.userosscache
 *.sln.docstates
 

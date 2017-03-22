@@ -5,8 +5,8 @@ Import-Module .\Dusty.AdConnectivity.dll
 
 
 Write-Host -ForegroundColor Yellow 'By parameter:'
-Get-Stupider 'Jim', 'Bob'
+Get-Stupider 'Jim', 'Bob' | Out-String
 
-Write-Host ""
+
 Write-Host -ForegroundColor Yellow 'From pipeline: '
-'Zinnie', 'Lou-Lou' | Get-Stupider
+'Zinnie', 'Lou-Lou' | Get-Stupider | Out-String

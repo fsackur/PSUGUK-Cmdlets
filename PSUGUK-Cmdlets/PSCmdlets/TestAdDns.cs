@@ -54,9 +54,21 @@ namespace Dusty.ADConnectivity
 
             resolvers.ForEach(ProcessResolver);
 
-            var distinctResponses = responses.Distinct();
+            List<AdDnsResponse> distinctResponses = responses
+                .Distinct()
+                .ToList();
 
-            if (distinctResponses.Count() > 1)
+            KeyValuePair<AdDnsResponse, List<string>> majority;
+            
+
+            if (distinctResponses.Count() == 1)
+            {
+                majority = new KeyValuePair<AdDnsResponse, List<string>>(
+                    distinctResponses.First(),
+                    new List<string>(1) { distinctResponses.First().DnsServer }
+                    );
+            }
+            else
             {
                 //divide up the responses based on which agree with each other. Each element has a list of servers that returned the same records
                 var equalitySets = new Dictionary<AdDnsResponse, List<string>>(distinctResponses.Count());
@@ -74,7 +86,7 @@ namespace Dusty.ADConnectivity
 
                 var sb = new StringBuilder();
 
-                var majority = equalitySets
+                majority = equalitySets
                     .OrderByDescending(kvp => kvp.Value.Count)
                     .First();
                 equalitySets.Remove(majority.Key);
@@ -92,7 +104,7 @@ namespace Dusty.ADConnectivity
                     sb
                         .Append("The following servers returned differing DNS records: ")
                         .Append("\r\n")
-                        .Append(String.Join(", ", majority.Value.ToArray()))
+                        .Append(String.Join(", ", kvp.Value.ToArray()))
                         .Append("\r\n")
 
                         .Append("The differing records were: ")
@@ -104,8 +116,11 @@ namespace Dusty.ADConnectivity
 
                 WriteVerbose(sb.ToString());
 
-            }
+            } //end if distinctresponses count
 
-        }
-    }
+
+            WriteObject(majority.Key);
+
+        } //end EndProcessing
+    } //end class
 }

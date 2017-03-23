@@ -14,7 +14,6 @@ param(
 $ProjectDir = $PSScriptRoot
 $TargetDir = Split-Path $TargetPath
 Set-Location $TargetDir
-$ModuleName = (Split-Path $TargetPath -Leaf) -replace '\.dll$'
 $PsdPath = $TargetPath -replace 'Dusty\.AdConnectivity\.dll', 'AdConnectivity.psd1'
 
 
@@ -45,7 +44,7 @@ Get-ChildItem '.\*.psm1' | %{Move-Item $_ .\Public -Force}
 #region Update help file
 Import-Module PlatyPS          #Install-Module PlatyPS (run in PowerShell x86 because, hey, Visual Studio)
 Import-Module $PsdPath
-$Cmdlets = Get-Command -Module $ModuleName -CommandType Cmdlet
+$Cmdlets = Get-Command -Module 'AdConnectivity' -CommandType Cmdlet
 
 #If the help markdown isn't there, create it
 New-MarkdownHelp -Command $Cmdlets -OutputFolder $ProjectDir\docs -ErrorAction SilentlyContinue

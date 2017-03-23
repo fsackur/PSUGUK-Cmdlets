@@ -8,8 +8,15 @@ $CorpIp = '134.213.29.116'
 
 #==============================================#
 
+<#
+Write-Host -ForegroundColor Magenta '
+    Get-Help Get-DnsResolver -Full
+'
+Get-Help Get-DnsResolver -Full | Out-String
+#>
+
 
 Write-Host -ForegroundColor Magenta '
-Get-Help Get-DnsResolver -Full
+    Get-DnsResolver "myyyyCOPM>UTRRZZZZplayingUPPPP"
 '
-Get-Help Get-DnsResolver -Full
+Get-DnsResolver "myyyyCOPM>UTRRZZZZplayingUPPPP" | Out-String

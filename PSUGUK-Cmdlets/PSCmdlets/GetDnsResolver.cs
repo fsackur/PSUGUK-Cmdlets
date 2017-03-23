@@ -19,6 +19,7 @@ namespace Dusty.ADConnectivity
     {
         //for ease of use, we want to accept hostnames or ipaddresses
         [Parameter(Mandatory = true, Position = 0, ValueFromPipeline = true)]
+        [ValidateDnsHostnameOrIpAddress()]
         public string[] DnsServer { get; set; }
 
 

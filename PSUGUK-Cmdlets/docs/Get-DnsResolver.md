@@ -11,8 +11,19 @@ Get an object representing a DNS server
 
 ## SYNTAX
 
+### DnsOnly (Default)
 ```
 Get-DnsResolver [-DnsServer] <String[]> [<CommonParameters>]
+```
+
+### AdSpecifiedDomain
+```
+Get-DnsResolver [-DnsServer] <String[]> -AdDomain <String> [<CommonParameters>]
+```
+
+### AdMachineDomain
+```
+Get-DnsResolver [-DnsServer] <String[]> [-UseMachineDomain] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -54,6 +65,36 @@ Required: True
 Position: 0
 Default value: None
 Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -AdDomain
+{{Fill AdDomain Description}}
+
+```yaml
+Type: String
+Parameter Sets: AdSpecifiedDomain
+Aliases: 
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -UseMachineDomain
+{{Fill UseMachineDomain Description}}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: AdMachineDomain
+Aliases: 
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 

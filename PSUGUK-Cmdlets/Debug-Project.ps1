@@ -8,46 +8,21 @@ $CorpIp = '134.213.29.116'
 
 #==============================================#
 
-<#
+
 Write-Host -ForegroundColor Magenta '
     Get-Help Get-DnsResolver -Full
 '
 Get-Help Get-DnsResolver -Full | Out-String
-#>
 
 
-Write-Host -ForegroundColor Magenta '
-	$DustyDc = New-Object Dusty.ADConnectivity.AdDnsResolver ($CorpIp, $CorpDomain)
-	$DustyDc
-'
-	$DustyDc = New-Object Dusty.ADConnectivity.AdDnsResolver ($CorpIp, $CorpDomain)
-	$DustyDc | Out-String
 
 Write-Host -ForegroundColor Magenta '
-	$DustyDc.QueryAd()
+	Get-DnsResolver $CorpDomain -Verbose
 '
-	$DustyDc.QueryAd() | Out-String
+	Get-DnsResolver $CorpDomain -Verbose
 
 Write-Host -ForegroundColor Magenta '
-	$DustyDc.QueryAd().GetErrors()
+	Get-DnsResolver $CorpDomain -UseMachineDomain -Verbose
 '
-	$DustyDc.QueryAd().GetErrors() | Out-String
+	Get-DnsResolver $CorpDomain -UseMachineDomain -Verbose | Out-String
 
-<#
-Write-Host -ForegroundColor Magenta '
-	$Goog = New-Object Dusty.ADConnectivity.AdDnsResolver ($CorpIp, $CorpDomain)
-	$Goog
-'
-	$Goog = New-Object Dusty.ADConnectivity.AdDnsResolver ("8.8.8.8", $CorpDomain)
-	$Goog | Out-String
-
-Write-Host -ForegroundColor Magenta '
-	$Goog.QueryAd()
-'
-	$Goog.QueryAd() | Out-String
-
-Write-Host -ForegroundColor Magenta '
-	$DustyDc.QueryAd().GetErrors()
-'
-	$Goog.QueryAd().GetErrors() | Out-String
-#>

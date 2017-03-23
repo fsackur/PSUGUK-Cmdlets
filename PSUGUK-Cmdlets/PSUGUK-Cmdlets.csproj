@@ -72,6 +72,12 @@
     <None Include="docs\Get-DnsResolver.md" />
     <None Include="packages.config" />
     <None Include="PostBuild.ps1" />
+    <None Include="PowerShell\ADConnectivity.psd1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="PowerShell\ADConnectivity.psm1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

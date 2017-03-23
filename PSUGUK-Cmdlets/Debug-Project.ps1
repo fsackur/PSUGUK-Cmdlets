@@ -1,6 +1,6 @@
 ﻿
 $Host.UI.RawUI.WindowTitle = 'Debugging'
-Import-Module .\Dusty.AdConnectivity.dll
+Import-Module .\AdConnectivity
 
 $CorpDomain = 'corp.dustyfox.uk'
 $CorpIp = '134.213.29.116'
@@ -33,8 +33,7 @@ Write-Host -ForegroundColor Magenta '
 '
 	$DustyDc.QueryAd().GetErrors() | Out-String
 
-pause
-
+<#
 Write-Host -ForegroundColor Magenta '
 	$Goog = New-Object Dusty.ADConnectivity.AdDnsResolver ($CorpIp, $CorpDomain)
 	$Goog
@@ -51,3 +50,4 @@ Write-Host -ForegroundColor Magenta '
 	$DustyDc.QueryAd().GetErrors()
 '
 	$Goog.QueryAd().GetErrors() | Out-String
+#>

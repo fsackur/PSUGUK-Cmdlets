@@ -8,21 +8,21 @@ $CorpIp = '134.213.29.116'
 
 #==============================================#
 
-
+<#
 Write-Host -ForegroundColor Magenta '
     Get-Help Get-DnsResolver -Full
 '
 Get-Help Get-DnsResolver -Full | Out-String
-
-
-
-Write-Host -ForegroundColor Magenta '
-	Get-DnsResolver $CorpDomain -Verbose
-'
-	Get-DnsResolver $CorpDomain -Verbose
+#>
 
 Write-Host -ForegroundColor Magenta '
-	Get-DnsResolver $CorpDomain -UseMachineDomain -Verbose
+	$R1 = Get-DnsResolver $CorpDomain $CorpDomain
+	$R2 = Get-DnsResolver $CorpDomain $CorpDomain
+	$R3 = Get-DnsResolver "8.8.8.8" $CorpDomain
+	$R1, $R2, $R3 | Test-AdDns
 '
-	Get-DnsResolver $CorpDomain -UseMachineDomain -Verbose | Out-String
 
+	$R1 = Get-DnsResolver $CorpDomain $CorpDomain
+	$R2 = Get-DnsResolver $CorpDomain $CorpDomain
+	$R3 = Get-DnsResolver "8.8.8.8" $CorpDomain
+	$R1, $R2, $R3 | Test-AdDns -Verbose

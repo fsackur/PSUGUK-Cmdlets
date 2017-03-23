@@ -19,7 +19,7 @@ namespace Dusty.ADConnectivity
      * useful to know if all DNS servers return the same records, so we implement
      * Equals
      */
-    public class AdDnsResponse : IEqualityComparer<AdDnsResponse>, IEquatable<AdDnsResponse>
+    public class AdDnsResponse
     {
 
         //constructor
@@ -73,9 +73,9 @@ namespace Dusty.ADConnectivity
 
             differences = new List<string>();
 
-            if (!Pdc.Equals(comparison.Pdc)) { differences.Add("Pdc"); }
-            if (!DomainARecords.Equals(comparison.DomainARecords)) { differences.Add("DomainARecords"); }
-            if (!SiteLdap.Equals(comparison.SiteLdap)) { differences.Add("SiteLdap"); }
+            if (!DnsResponse.Equals(Pdc, comparison.Pdc)) { differences.Add("Pdc"); }
+            if (!DnsResponse.Equals(DomainARecords, comparison.DomainARecords)) { differences.Add("DomainARecords"); }
+            if (!DnsResponse.Equals(SiteLdap, comparison.SiteLdap)) { differences.Add("SiteLdap"); }
 
             return (differences.Count == 0);
         }
@@ -91,8 +91,7 @@ namespace Dusty.ADConnectivity
             return ToString().GetHashCode();
         }
 
-        // IEqualityComparer methods
-        public bool Equals(AdDnsResponse x, AdDnsResponse y)
+        public static bool Equals(AdDnsResponse x, AdDnsResponse y)
         {
             if (x == null && y == null) { return true; }
             if (x == null && y != null) { return false; }

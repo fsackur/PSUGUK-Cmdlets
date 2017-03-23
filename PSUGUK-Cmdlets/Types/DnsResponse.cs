@@ -13,7 +13,7 @@ namespace Dusty.ADConnectivity
      * 
      * Tuples are not handled well in PowerShell; hence, this class
      */
-    public class DnsResponse : IEqualityComparer<DnsResponse>
+    public class DnsResponse
     {
         public DnsResponse(string[] answers, string[] errors) : this(answers.ToList(), errors.ToList())
         { }
@@ -38,8 +38,10 @@ namespace Dusty.ADConnectivity
             return Answers.SequenceEqual(comparison.Answers);
         }
 
-        public bool Equals(DnsResponse x, DnsResponse y)
+        public static bool Equals(DnsResponse x, DnsResponse y)
         {
+            if (x == null && y == null) { return true; }
+            if (x == null && y != null) { return false; }
             return x.Equals(y);
         }
 

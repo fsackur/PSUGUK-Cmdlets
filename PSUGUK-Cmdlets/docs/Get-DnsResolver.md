@@ -18,7 +18,7 @@ Get-DnsResolver [-DnsServer] <String[]> [<CommonParameters>]
 
 ### AdSpecifiedDomain
 ```
-Get-DnsResolver [-DnsServer] <String[]> -AdDomain <String> [<CommonParameters>]
+Get-DnsResolver [-DnsServer] <String[]> [-AdDomain] <String> [<CommonParameters>]
 ```
 
 ### AdMachineDomain
@@ -71,6 +71,21 @@ Gets a DNS server and queries it for AD-related records from the current machine
 
 ## PARAMETERS
 
+### -AdDomain
+The AD domain that the returned AD DNS resolver object is to query
+
+```yaml
+Type: String
+Parameter Sets: AdSpecifiedDomain
+Aliases: 
+
+Required: True
+Position: 1
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -DnsServer
 The IP address or hostname of a DNS server. If hostname is provided, the default DNS resolution mechanism will be used to resolve it to an IP address
 
@@ -83,21 +98,6 @@ Required: True
 Position: 0
 Default value: None
 Accept pipeline input: True (ByValue)
-Accept wildcard characters: False
-```
-
-### -AdDomain
-The AD domain that the returned AD DNS resolver object is to query
-
-```yaml
-Type: String
-Parameter Sets: AdSpecifiedDomain
-Aliases: 
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
 Accept wildcard characters: False
 ```
 

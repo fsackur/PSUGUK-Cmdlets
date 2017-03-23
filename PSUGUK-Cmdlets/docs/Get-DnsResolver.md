@@ -51,6 +51,24 @@ PS C:\> $DnsServer.Query("skillz4bills.biz", "SOA")
 
 Gets a DNS server and queries it for the Start Of Authority record for the delightfully tacky skillz4bills.biz domain
 
+### Example 3
+```
+PS C:\> $DnsServer = Get-DnsResolver "10.14.0.5" -AdDomain omnicorp.local
+
+PS C:\> $DnsServer.QueryAd()
+```
+
+Gets a DNS server and queries it for AD-related records from the omnicorp.local domain
+
+### Example 4
+```
+PS C:\> $DnsServer = Get-DnsResolver "10.14.0.5" -UseMachineDomain
+
+PS C:\> $DnsServer.QueryAd()
+```
+
+Gets a DNS server and queries it for AD-related records from the current machine's AD domain
+
 ## PARAMETERS
 
 ### -DnsServer
@@ -69,7 +87,7 @@ Accept wildcard characters: False
 ```
 
 ### -AdDomain
-{{Fill AdDomain Description}}
+The AD domain that the returned AD DNS resolver object is to query
 
 ```yaml
 Type: String
@@ -84,7 +102,7 @@ Accept wildcard characters: False
 ```
 
 ### -UseMachineDomain
-{{Fill UseMachineDomain Description}}
+Specifies that the AD domain that the returned AD DNS resolver object should query is the domain that the current machine is bound to
 
 ```yaml
 Type: SwitchParameter
@@ -108,6 +126,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ### Dusty.ADConnectivity.DnsResolver
+
+### Dusty.ADConnectivity.AdDnsResolver
 
 ## NOTES
 
